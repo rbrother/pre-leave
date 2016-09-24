@@ -1,0 +1,74 @@
+-------------
+STORY STRUCTURE
+
+	PA1 (Pre-Attempt #1)
+
+		Scenery: The room's organized regarding the furniture. Katy stands next to the display with the button piece in her hand.
+		
+		Katy: Well, here goes nothing.
+
+		(Reaction Gameplay Event or RGE)
+
+	VOA1 (VictoryOnAttempt #1)
+
+		Scenery: Katy "cringes happily", rises her hand with the button piece in her hand and has her eyes as upside down Us.
+
+		Katy: Yesss! Partyyyyyyyyyyy!
+
+		Scenery: Max comes in and Katy's expression drops in the extreme department.
+
+		Max: Oh, there you are. We're all packed up and I was looking for you. Ready to go?
+
+		Katy: Absolutely! By the way, is the equipment here too expensive to just leave it here?
+
+		Max: Well, the PC just acts like a glorified operating system and I feel no affection towards the mug so...
+		Yeah, we're all good. Let's go.
+
+		Katy: Ok.
+
+		Scenery: Katy and Max sit inside the van talking to each other.
+
+	Take#2
+
+		PA1
+
+			Scenery: The title screen computer hasn't left the view since the player has pressed the "Start Experiment" button. Instead there's a new text on the screen that could be called Post-title text in the code.
+
+			Post-title Text: I know I shouldn't get this alarmed as it stands but I had to. Numbers don't lie and what they're telling is that if I can't pull of my reactio fast enough it basically means this timeline
+			we're on doesn't exist. It would mean we're unsynced as it is because I ran some tests at like 3AM in the morning and they were saying I should be able to react fast enough to a screen changing it's color in a
+			run. Unfortunately though the laptop I ran the test on also suggested I couldn't do it so a question remains: Is it truly possible? Only thing that could cause this sort of inconsistancy is if the 
+			time-space-continuum we're on is collapsing. You might of course ask yourself "well, why did you bother to notice this in the first place?" and I can only give you math as an answer right now so click here
+			(DON'T WRITE THIS TEXT TO THE GAME: The word here would have a highlight-line under it) if you're dying to know. Anyway, I'll spare you the effort and let you know what I'm doing in this experiment:
+
+			So, as I press the button piece I have (when you, the player, press E) the screen turns from green to blue and then it's just a matter of time until the screen turns red. As it turns red I'll have to press the
+			button piece again (you, the player, will have to press E again) as soon as I can. If it takes over (DON'T WRITE THIS TEXT TO THE GAME: This portion of the text displays the time you'll have to react to the
+			color change in milliseconds) ms for me to do say the experiment has failed but that could be because of simply me being too slow. So if that happens I'll just simply have to try again.
+			As a little side note: If I press the button piece as the screen's blue the timer will restart.
+
+GAMEPLAY NOTES
+
+	START
+
+		/*
+		Upon starting the game the gameplay objects are organized as said in the PA1. The text PRELEAVE (the font could be light grey, 8-bit-like) is present at the bottom right of the screen.
+		At the top left there are (maybe green) lines that go:
+		"Please type with your keyboard the amount of milliseconds you'll have time to react to the screen going from blue to red."
+		"" (This would be the line where your typed number would go)
+		"When you're ready please press enter."
+		If no number is put in like desired and the player presses Enter the input line will blink for a moment and state briefly that it needs some numbers in it before it's desirable to press Enter.
+		At the bottom line it could be stated that "To exit the game press Esc."
+		*/
+
+		The game starts with the view of the computer screen in the basement floor.
+		At the middle top there's a text reading "PRELEAVE".
+		A little bit under the title text there's a line reading "Type a number with your keyboard. This number will act as the amount of ms you'll have time to respond to the screen turning from blue to red. When you're done 
+		press Enter."
+		Under that there's a text that can be typed to saying "(Type an integer number here)".
+		If no number or a non-integer number is typed and then Enter is pressed the type-to text will blink for a moment.
+		At the bottom there would be a text saying "To exit the game press Esc".
+
+LINKS
+
+	CANCEL SOUND EFFECT WEBSITE
+
+		https://www.freesound.org/people/Kastenfrosch/packs/10069/
