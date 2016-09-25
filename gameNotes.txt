@@ -45,6 +45,10 @@ STORY STRUCTURE
 			color change in milliseconds) ms for me to do say the experiment has failed but that could be because of simply me being too slow. So if that happens I'll just simply have to try again.
 			As a little side note: If I press the button piece as the screen's blue the timer will restart.
 
+	THE COMPANY KATY WORKS IN	
+
+		General Calculation Research
+
 GAMEPLAY NOTES
 
 	START

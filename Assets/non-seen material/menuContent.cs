@@ -46,6 +46,7 @@ public class menuContent : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown("e")) {
+            //if(menuObjects) <-- add it so the program checks where we're at to find out what function should be called.
         }
 
         if (Input.GetKeyDown("d") || Input.GetKeyDown("s") || Input.GetKeyDown("a") || Input.GetKeyDown("w")) {
