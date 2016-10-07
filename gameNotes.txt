@@ -49,6 +49,20 @@ STORY STRUCTURE
 
 		General Calculation Research
 
+	CHARACTER INFO
+
+		KATY
+
+			CHARACTERISTICS
+
+				Positive, never-giving-up, gets stuck in the bad stuff.
+
+		MAX
+
+			CHARACTERISTICS
+
+				Strict, greatly cares for own image, tries to be funny but isn't that good at it.
+
 GAMEPLAY NOTES
 
 	START
