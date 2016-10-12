@@ -8,6 +8,7 @@ using System.Collections.Generic;
 class MenuItem {
     public GameObject gameObject { get; set; }
     public string infoText { get; set; }
+    public Action codeblock { get; set; }
 }
 
 public class menuContent : MonoBehaviour {
@@ -20,15 +21,25 @@ public class menuContent : MonoBehaviour {
     // Use this for initialization
     void Start() {
         //below gameobject initialization
-        menuObjects.Add(new Vector2(1, 1), new MenuItem { gameObject = GameObject.Find("expeFileLogo"), infoText = "Experiment Management" } );
-        menuObjects.Add(new Vector2(2, 1), new MenuItem { gameObject = GameObject.Find("settingsLogo"), infoText = "Settings"});
-        menuObjects.Add(new Vector2(3, 1), new MenuItem { gameObject = GameObject.Find("exitLogo"), infoText = "Shutdown" });//GameObject.Find("exitLogo"));
-        menuObjects.Add(new Vector2(1, 2), new MenuItem { gameObject = GameObject.Find("estimatedRecordLogo"), infoText = "Estimated Record" });//GameObject.Find("estimatedRecordLogo"));
-        menuObjects.Add(new Vector2(2, 2), new MenuItem { gameObject = GameObject.Find("personalFilesLogo"), infoText = "Personal Files" });//GameObject.Find("personalFilesLogo"));
-        menuObjects.Add(new Vector2(3, 2), new MenuItem { gameObject = GameObject.Find("GCR_Logo"), infoText = "Access GCR" });//GameObject.Find("GCR_Logo"));
+        menuObjects.Add(new Vector2(1, 1), 
+            new MenuItem { gameObject = GameObject.Find("expeFileLogo"), infoText = "Experiment Management", codeblock = ExpeCode } );
+        menuObjects.Add(new Vector2(2, 1), 
+            new MenuItem { gameObject = GameObject.Find("settingsLogo"), infoText = "Settings"});
+        menuObjects.Add(new Vector2(3, 1), 
+            new MenuItem { gameObject = GameObject.Find("exitLogo"), infoText = "Shutdown" });
+        menuObjects.Add(new Vector2(1, 2), 
+            new MenuItem { gameObject = GameObject.Find("estimatedRecordLogo"), infoText = "Estimated Record" });
+        menuObjects.Add(new Vector2(2, 2), 
+            new MenuItem { gameObject = GameObject.Find("personalFilesLogo"), infoText = "Personal Files" });
+        menuObjects.Add(new Vector2(3, 2),
+            new MenuItem { gameObject = GameObject.Find("GCR_Logo"), infoText = "Access GCR" });
         currentlySelectedText = GameObject.Find("currentSelectedOne").GetComponent<Text>();
         Debug.Log("Dotnet version: " + Environment.Version.ToString());
         Highlighting(x,y,x,y);
+    }
+
+    void ExpeCode() {
+        Debug.Log("experiment management has been selected!");
     }
 
     void Highlighting(int oldX,int oldY,int newX,int newY) {
@@ -46,7 +57,7 @@ public class menuContent : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown("e")) {
-            //if(menuObjects) <-- add it so the program checks where we're at to find out what function should be called.
+            menuObjects[new Vector2(x, y)].codeblock();
         }
 
         if (Input.GetKeyDown("d") || Input.GetKeyDown("s") || Input.GetKeyDown("a") || Input.GetKeyDown("w")) {
