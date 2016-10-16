@@ -24,7 +24,6 @@ public class overallControl : MonoBehaviour {
     // Use this for initialization
     void Start () {
         camera = GameObject.Find("Camera");
-        canvas = GameObject.Find("Canvas");
         settings = GameObject.Find("settingsElements");
         settings.SetActive(false);
         audioOn = true;

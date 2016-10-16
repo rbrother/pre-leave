@@ -17,6 +17,9 @@ public class menuContent : MonoBehaviour {
     int y = 1;
     Dictionary<Vector2, MenuItem> menuObjects = new Dictionary<Vector2, MenuItem>();
     Text currentlySelectedText;
+    GameObject canvas;
+    GameObject settingsPanel;
+    RectTransform settingsTransform;
 
     // Use this for initialization
     void Start() {
@@ -24,7 +27,7 @@ public class menuContent : MonoBehaviour {
         menuObjects.Add(new Vector2(1, 1), 
             new MenuItem { gameObject = GameObject.Find("expeFileLogo"), infoText = "Experiment Management", codeblock = ExpeCode } );
         menuObjects.Add(new Vector2(2, 1), 
-            new MenuItem { gameObject = GameObject.Find("settingsLogo"), infoText = "Settings"});
+            new MenuItem { gameObject = GameObject.Find("settingsLogo"), infoText = "Settings", codeblock = settingsCode });
         menuObjects.Add(new Vector2(3, 1), 
             new MenuItem { gameObject = GameObject.Find("exitLogo"), infoText = "Shutdown" });
         menuObjects.Add(new Vector2(1, 2), 
@@ -34,12 +37,25 @@ public class menuContent : MonoBehaviour {
         menuObjects.Add(new Vector2(3, 2),
             new MenuItem { gameObject = GameObject.Find("GCR_Logo"), infoText = "Access GCR" });
         currentlySelectedText = GameObject.Find("currentSelectedOne").GetComponent<Text>();
-        Debug.Log("Dotnet version: " + Environment.Version.ToString());
-        Highlighting(x,y,x,y);
+        //Debug.Log("Dotnet version: " + Environment.Version.ToString());
+        canvas = GameObject.Find("Canvas");
+        settingsPanel = GameObject.Find("settingsPanel");
+        settingsPanel.SetActive(false);
+
+        //below beginning function executing
+        Highlighting(x, y, x, y);
+
+        //below component initialization
+        //unHighlightImageComponent = toBeDehighlighted.GetComponent<RawImage>();
+        settingsTransform = settingsPanel.GetComponent<RectTransform>();
     }
 
     void ExpeCode() {
-        Debug.Log("experiment management has been selected!");
+        //strictlyMenuContent.SetActive(false);
+    }
+
+    void settingsCode() {
+        settingsPanel.SetActive(true);
     }
 
     void Highlighting(int oldX,int oldY,int newX,int newY) {
