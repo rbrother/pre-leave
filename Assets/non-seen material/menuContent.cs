@@ -55,7 +55,7 @@ public class menuContent : MonoBehaviour {
     }
 
     void settingsCode() {
-        settingsPanel.SetActive(true);
+        settingsPanel.SetActive(settingsPanel.activeSelf ? false : true);
     }
 
     void Highlighting(int oldX,int oldY,int newX,int newY) {
