@@ -29,7 +29,7 @@ public class menuContent : MonoBehaviour {
         menuObjects.Add(new Vector2(2, 1), 
             new MenuItem { gameObject = GameObject.Find("settingsLogo"), infoText = "Settings", codeblock = settingsCode });
         menuObjects.Add(new Vector2(3, 1), 
-            new MenuItem { gameObject = GameObject.Find("exitLogo"), infoText = "Shutdown" });
+            new MenuItem { gameObject = GameObject.Find("exitLogo"), infoText = "Shutdown", codeblock = shutdownCode });
         menuObjects.Add(new Vector2(1, 2), 
             new MenuItem { gameObject = GameObject.Find("estimatedRecordLogo"), infoText = "Estimated Record" });
         menuObjects.Add(new Vector2(2, 2), 
@@ -58,6 +58,10 @@ public class menuContent : MonoBehaviour {
         settingsPanel.SetActive(settingsPanel.activeSelf ? false : true);
     }
 
+    void shutdownCode() {
+        Application.Quit();
+    }
+
     void Highlighting(int oldX,int oldY,int newX,int newY) {
         var toBeDehighlighted = menuObjects[new Vector2(oldX, oldY)].gameObject;
         var unHighlightImageComponent = toBeDehighlighted.GetComponent<RawImage>();
@@ -76,7 +80,7 @@ public class menuContent : MonoBehaviour {
             menuObjects[new Vector2(x, y)].codeblock();
         }
 
-        if (Input.GetKeyDown("d") || Input.GetKeyDown("s") || Input.GetKeyDown("a") || Input.GetKeyDown("w")) {
+        if ((Input.GetKeyDown("d") || Input.GetKeyDown("s") || Input.GetKeyDown("a") || Input.GetKeyDown("w")) && !settingsPanel.activeSelf) {
             int oldX = x;
             int oldY = y;
             if (Input.GetKeyDown("d") && x < 3) {
