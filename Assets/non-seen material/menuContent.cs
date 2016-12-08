@@ -20,6 +20,8 @@ public class menuContent : MonoBehaviour {
     GameObject canvas;
     GameObject settingsPanel;
     RectTransform settingsTransform;
+    GameObject estimationTxt;
+    Text record;
 
     // Use this for initialization
     void Start() {
@@ -31,7 +33,7 @@ public class menuContent : MonoBehaviour {
         menuObjects.Add(new Vector2(3, 1), 
             new MenuItem { gameObject = GameObject.Find("exitLogo"), infoText = "Shutdown", codeblock = shutdownCode });
         menuObjects.Add(new Vector2(1, 2), 
-            new MenuItem { gameObject = GameObject.Find("estimatedRecordLogo"), infoText = "Estimated Record" });
+            new MenuItem { gameObject = GameObject.Find("estimatedRecordLogo"), infoText = "Estimated Record", codeblock = estimation });
         menuObjects.Add(new Vector2(2, 2), 
             new MenuItem { gameObject = GameObject.Find("personalFilesLogo"), infoText = "Personal Files" });
         menuObjects.Add(new Vector2(3, 2),
@@ -41,11 +43,13 @@ public class menuContent : MonoBehaviour {
         canvas = GameObject.Find("Canvas");
         settingsPanel = GameObject.Find("settingsPanel");
         settingsPanel.SetActive(false);
+        estimationTxt = GameObject.Find("estimationtext");
 
         //below beginning function executing
         Highlighting(x, y, x, y);
 
         //below component initialization
+        record = estimationTxt.GetComponent<Text>();
         //unHighlightImageComponent = toBeDehighlighted.GetComponent<RawImage>();
         settingsTransform = settingsPanel.GetComponent<RectTransform>();
     }
@@ -60,6 +64,12 @@ public class menuContent : MonoBehaviour {
 
     void shutdownCode() {
         Application.Quit();
+    }
+
+    void estimation() {
+        record.text = "retrieving information from the current experiment \nexperiment2.overview.estimatedrecord";
+        //retrieving information from the current experiment:
+        //experiment2.overview.estimatedrecord:
     }
 
     void Highlighting(int oldX,int oldY,int newX,int newY) {

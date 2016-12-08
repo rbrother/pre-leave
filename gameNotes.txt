@@ -1,3 +1,5 @@
+!!! NOTES KEPT WITHIN ONENOTE (PRESUMABLY) AFTER 6TH DECEMBER 2016 !!!
+
 -------------
 STORY STRUCTURE
 
@@ -84,6 +86,10 @@ GAMEPLAY NOTES
 		Under that there's a text that can be typed to saying "(Type an integer number here)".
 		If no number or a non-integer number is typed and then Enter is pressed the type-to text will blink for a moment.
 		At the bottom there would be a text saying "To exit the game press Esc".
+
+	AUDIO
+
+		- Be sure to have some or the option to turn it off is worthless.
 
 LINKS
 
