@@ -22,6 +22,7 @@ public class menuContent : MonoBehaviour {
     RectTransform settingsTransform;
     GameObject estimationTxt;
     Text record;
+    int msRecord;
 
     // Use this for initialization
     void Start() {
@@ -52,6 +53,9 @@ public class menuContent : MonoBehaviour {
         record = estimationTxt.GetComponent<Text>();
         //unHighlightImageComponent = toBeDehighlighted.GetComponent<RawImage>();
         settingsTransform = settingsPanel.GetComponent<RectTransform>();
+
+        //below int initialization
+        msRecord = 750;
     }
 
     void ExpeCode() {
@@ -67,7 +71,7 @@ public class menuContent : MonoBehaviour {
     }
 
     void estimation() {
-        record.text = "retrieving information from the current experiment \nexperiment2.overview.estimatedrecord";
+        record.text = "retrieving information from the current experiment \nexperiment2.overview.estimatedrecord:\n" + "\t\t\t\t\t\t" + msRecord;
         //retrieving information from the current experiment:
         //experiment2.overview.estimatedrecord:
     }
