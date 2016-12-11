@@ -23,6 +23,8 @@ public class menuContent : MonoBehaviour {
     GameObject estimationTxt;
     Text record;
     int msRecord;
+    GameObject recElmnts;
+    bool windowActive;
 
     // Use this for initialization
     void Start() {
@@ -40,11 +42,11 @@ public class menuContent : MonoBehaviour {
         menuObjects.Add(new Vector2(3, 2),
             new MenuItem { gameObject = GameObject.Find("GCR_Logo"), infoText = "Access GCR" });
         currentlySelectedText = GameObject.Find("currentSelectedOne").GetComponent<Text>();
-        //Debug.Log("Dotnet version: " + Environment.Version.ToString());
         canvas = GameObject.Find("Canvas");
         settingsPanel = GameObject.Find("settingsPanel");
         settingsPanel.SetActive(false);
         estimationTxt = GameObject.Find("estimationtext");
+        recElmnts = GameObject.Find("recordElements");
 
         //below beginning function executing
         Highlighting(x, y, x, y);
@@ -56,6 +58,8 @@ public class menuContent : MonoBehaviour {
 
         //below int initialization
         msRecord = 750;
+        recElmnts.SetActive(false);
+        windowActive = false;
     }
 
     void ExpeCode() {
@@ -71,9 +75,12 @@ public class menuContent : MonoBehaviour {
     }
 
     void estimation() {
-        record.text = "retrieving information from the current experiment \nexperiment2.overview.estimatedrecord:\n" + "\t\t\t\t\t\t" + msRecord;
-        //retrieving information from the current experiment:
-        //experiment2.overview.estimatedrecord:
+        if (!recElmnts.activeSelf) {
+            recElmnts.SetActive(true);
+            record.text = "retrieving information from the current experiment \nexperiment2.overview.estimatedrecord:\n\n" + "\t\t\t\t\t\t" + msRecord;
+        }else {
+            recElmnts.SetActive(false);
+        }
     }
 
     void Highlighting(int oldX,int oldY,int newX,int newY) {
@@ -91,10 +98,11 @@ public class menuContent : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown("e")) {
+            windowActive = windowActive ? false : true;
             menuObjects[new Vector2(x, y)].codeblock();
         }
 
-        if ((Input.GetKeyDown("d") || Input.GetKeyDown("s") || Input.GetKeyDown("a") || Input.GetKeyDown("w")) && !settingsPanel.activeSelf) {
+        if ((Input.GetKeyDown("d") || Input.GetKeyDown("s") || Input.GetKeyDown("a") || Input.GetKeyDown("w")) && !windowActive) {
             int oldX = x;
             int oldY = y;
             if (Input.GetKeyDown("d") && x < 3) {
