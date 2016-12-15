@@ -18,13 +18,14 @@ public class menuContent : MonoBehaviour {
     Dictionary<Vector2, MenuItem> menuObjects = new Dictionary<Vector2, MenuItem>();
     Text currentlySelectedText;
     GameObject canvas;
-    GameObject settingsPanel;
-    RectTransform settingsTransform;
     GameObject estimationTxt;
     Text record;
     int msRecord;
     GameObject recElmnts;
     bool windowActive;
+    GameObject mainWindow;
+    GameObject menuText;
+    Text menuTxtCom;
 
     // Use this for initialization
     void Start() {
@@ -43,23 +44,25 @@ public class menuContent : MonoBehaviour {
             new MenuItem { gameObject = GameObject.Find("GCR_Logo"), infoText = "Access GCR" });
         currentlySelectedText = GameObject.Find("currentSelectedOne").GetComponent<Text>();
         canvas = GameObject.Find("Canvas");
-        settingsPanel = GameObject.Find("settingsElements");
-        settingsPanel.SetActive(false);
+        mainWindow = GameObject.Find("mainTitleScreenWindow");
         estimationTxt = GameObject.Find("estimationtext");
         recElmnts = GameObject.Find("recordElements");
+        menuText = GameObject.Find("mainText");
 
         //below beginning function executing
         Highlighting(x, y, x, y);
 
         //below component initialization
         record = estimationTxt.GetComponent<Text>();
-        //unHighlightImageComponent = toBeDehighlighted.GetComponent<RawImage>();
-        settingsTransform = settingsPanel.GetComponent<RectTransform>();
+        menuTxtCom = menuText.GetComponent<Text>();
 
         //below int initialization
         msRecord = 750;
         recElmnts.SetActive(false);
         windowActive = false;
+
+        //other
+        mainWindow.SetActive(false);
     }
 
     void ExpeCode() {
@@ -67,7 +70,8 @@ public class menuContent : MonoBehaviour {
     }
 
     void settingsCode() {
-        settingsPanel.SetActive(settingsPanel.activeSelf ? false : true);
+        menuTxtCom.text = "the amount of time you'll have to respond to the screen color changing ( change with a / d ):";
+        //"change the amount of time you'll have to respond to the color changing with the a / d keys, the amount in milliseconds can be viewed in the..."
     }
 
     void shutdownCode() {
@@ -98,7 +102,7 @@ public class menuContent : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown("e")) {
-            windowActive = windowActive ? false : true;
+            mainWindow.SetActive(mainWindow.activeSelf ? false : true);
             menuObjects[new Vector2(x, y)].codeblock();
         }
 
@@ -120,3 +124,7 @@ public class menuContent : MonoBehaviour {
 }
 
 //link to dictionary tutuorial: http://www.dotnetperls.com/dictionary
+
+//below a collection of lines not found useful at the moment:
+//unHighlightImageComponent = toBeDehighlighted.GetComponent<RawImage>();
+//settingsTransform = settingsPanel.GetComponent<RectTransform>();
