@@ -43,7 +43,7 @@ public class menuContent : MonoBehaviour {
             new MenuItem { gameObject = GameObject.Find("GCR_Logo"), infoText = "Access GCR" });
         currentlySelectedText = GameObject.Find("currentSelectedOne").GetComponent<Text>();
         canvas = GameObject.Find("Canvas");
-        settingsPanel = GameObject.Find("settingsPanel");
+        settingsPanel = GameObject.Find("settingsElements");
         settingsPanel.SetActive(false);
         estimationTxt = GameObject.Find("estimationtext");
         recElmnts = GameObject.Find("recordElements");
